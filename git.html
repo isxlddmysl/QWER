@@ -1,0 +1,131 @@
+<!DOCTYPE html>  
+<html lang="uk">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Меню з підменю</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            background-color: #f9f2f4;  
+        }  
+        
+        .horizontal-menu {  
+            background-color: #d81b60;  
+            overflow: hidden;  
+        }  
+        .horizontal-menu a {  
+            float: left;  
+            display: block;  
+            color: white;  
+            text-align: center;  
+            padding: 14px 16px;  
+            text-decoration: none;  
+        }  
+        .horizontal-menu a:hover {  
+            background-color: #f48fb1;  
+            color: black;  
+        }  
+
+       
+        .vertical-menu {  
+            width: 200px;  
+            background-color: #f8bbd0; 
+            float: left;  
+            padding: 10px;  
+            border-radius: 5px;  
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);  
+        }  
+        .vertical-menu a {  
+            display: block;  
+            color: #880e4f;  
+            padding: 8px 16px;  
+            text-decoration: none;  
+            border-radius: 4px;  
+            transition: background-color 0.3s;  
+        }  
+        .vertical-menu a:hover {  
+            background-color: #f48fb1;  
+        }  
+
+
+        .sub-menu {  
+            display: none;  
+            padding-left: 20px;  
+        }  
+        .vertical-menu .has-submenu {  
+            cursor: pointer;  
+        }  
+
+  
+        .container {  
+            display: flex;  
+        }  
+        .content {  
+            flex: 1;  
+            padding: 20px;  
+            margin-left: 20px;  
+            background-color: #fff;  
+            border-radius: 5px;  
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);  
+        }  
+    </style>  
+</head>  
+<body>  
+
+    <div class="horizontal-menu">  
+        <a href="#home">Головна</a>  
+        <a href="#services">Послуги</a>  
+        <a href="#about">Про нас</a>  
+        <a href="#contact">Контакти</a>  
+    </div>  
+
+    <div class="container">  
+        <div class="vertical-menu">  
+            <div class="has-submenu">Профіль</div>  
+            <div class="sub-menu">  
+                <a href="#viewProfile">Переглянути профіль</a>  
+                <a href="#editProfile">Редагувати профіль</a>  
+            </div>  
+            <div class="has-submenu">Налаштування</div>  
+            <div class="sub-menu">  
+                <a href="#accountSettings">Налаштування облікового запису</a>  
+                <a href="#privacySettings">Налаштування конфіденційності</a>  
+            </div>  
+            <div class="has-submenu">Допомога</div>  
+            <div class="sub-menu">  
+                <a href="#faq">Часті питання</a>  
+                <a href="#contactSupport">Зв’язатися з підтримкою</a>  
+            </div>  
+            <a href="#logout">Вихід</a>  
+        </div>  
+
+        <div class="content">  
+            <h1>Ласкаво просимо на сайт!</h1>  
+            <p>Виберіть пункт меню, щоб продовжити.</p>  
+        </div>  
+    </div>  
+
+    <script>  
+     
+        const submenuHeaders = document.querySelectorAll('.has-submenu');  
+        submenuHeaders.forEach(header => {  
+            header.addEventListener('click', () => {  
+                const submenu = header.nextElementSibling;  
+                submenu.style.display = (submenu.style.display === "block") ? "none" : "block";  
+            });  
+        });  
+
+        const menuLinks = document.querySelectorAll('.vertical-menu a');  
+        menuLinks.forEach(link => {  
+            link.addEventListener('click', (event) => {  
+                event.preventDefault(); 
+                alert(`Ви обрали: ${link.textContent}`);  
+            });  
+        });  
+    </script>  
+
+</body>  
+</html>
